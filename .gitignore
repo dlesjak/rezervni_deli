@@ -1,0 +1,14 @@
+db.sqlite3*
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.swp
+*.swo
+*.DS_Store
+/staticfiles/
+/media/
+.env
+.vscode/
+.idea/

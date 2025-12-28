@@ -1,0 +1,46 @@
+{% load django_tables2 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezervni deli</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" type="text/css" href="{% static 'rd/custom.css' %}">
+</head>
+<body>
+    {% include 'rd/navbar.html' %}
+    <h1>Podrobnosti dela: {{ sparepart.name }}</h1>
+    <table class="table table-striped table-bordered w-auto">
+        <tr>
+            <th>ID</th>
+            <td>{{ sparepart.id }}</td>
+        </tr>
+        <tr>
+            <th>Naziv</th>
+            <td>{{ sparepart.name }}</td>
+        </tr>
+        <tr>
+            <th>Tip</th>
+            <td>{{ sparepart.type }}</td>
+        </tr>
+        <tr>
+            <th>Datum nabave</th>
+            <td>{{ sparepart.dop }}</td>
+        </tr>
+        <tr>
+            <th>Lastnik</th>
+            <td>{{ sparepart.owner }}</td>
+        </tr>
+        <tr>
+            <th>Lokacija</th>
+            <td>{{ sparepart.location }}</td>
+        </tr>
+    </table>
+    <button type="button" class="btn btn-primary" onclick="location.href='{% url 'rd:part_edit' sparepart.id %}'">Uredi del</button>
+    <button type="button" class="btn btn-danger" onclick="location.href='{% url 'rd:part_delete' sparepart.id %}'">Izbriši del</button>
+</body>
+</html>
